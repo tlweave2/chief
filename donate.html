@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Manteca Police Chief's Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=League+Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e315e;
+            --accent-yellow: #f0de24;
+            --dark-grey: #1c1815;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'League Spartan', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-grey);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(30, 49, 94, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: var(--dark-grey);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-blue);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, rgba(30, 49, 94, 0.8) 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Yeseva One', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .breadcrumb {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .donate-content {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .donate-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .donate-intro h2 {
+            font-family: 'Yeseva One', serif;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .donate-intro p {
+            font-size: 1.2rem;
+            color: var(--dark-grey);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-highlight {
+            background: var(--accent-yellow);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-left: 4px solid var(--primary-blue);
+            text-align: center;
+        }
+
+        .impact-highlight h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-highlight p {
+            color: var(--dark-grey);
+            font-weight: 500;
+        }
+
+        /* Donation Form */
+        .donation-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fafafa;
+            padding: 3rem;
+            border-radius: 2px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .form-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-section h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .amount-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .amount-option {
+            background: var(--white);
+            border: 2px solid #e5e5e5;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-grey);
+        }
+
+        .amount-option:hover {
+            border-color: var(--accent-yellow);
+            background: rgba(240, 222, 36, 0.1);
+        }
+
+        .amount-option.selected {
+            border-color: var(--primary-blue);
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .custom-amount {
+            margin-top: 1rem;
+        }
+
+        .custom-amount label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-grey);
+        }
+
+        .custom-amount input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e5e5;
+            font-size: 1.1rem;
+            font-family: 'League Spartan', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .custom-amount input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .donation-type {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .type-option {
+            flex: 1;
+            background: var(--white);
+            border: 2px solid #e5e5e5;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .type-option:hover {
+            border-color: var(--accent-yellow);
+        }
+
+        .type-option.selected {
+            border-color: var(--primary-blue);
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .donor-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .donor-info input, .donor-info textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e5e5;
+            font-size: 1rem;
+            font-family: 'League Spartan', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .donor-info input:focus, .donor-info textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .donate-button {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 2px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .donate-button:hover {
+            background: #2a4079;
+            transform: translateY(-2px);
+        }
+
+        /* Impact Section */
+        .impact-section {
+            padding: 6rem 0;
+            background: #fafafa;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .impact-item {
+            background: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+
+        .impact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .impact-item .amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-item h4 {
+            font-size: 1.1rem;
+            color: var(--dark-grey);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .impact-item p {
+            color: var(--dark-grey);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-grey);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-yellow);
+            font-weight: 500;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 300;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .donate-content, .impact-section {
+                padding: 4rem 0;
+            }
+            
+            .donation-form {
+                padding: 2rem;
+            }
+            
+            .amount-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .donor-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .donation-type {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+            
+            .amount-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo-section">
+                <img src="/imgs/MantecaPD.png" alt="Manteca Police Department" class="logo-image">
+                <div class="logo-text">Police Chief's Foundation</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#programs">Programs</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <li><a href="donate.html" class="active">Donate</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <p class="breadcrumb"><a href="index.html">Home</a> / Donate</p>
+            <h1>Support Our Mission</h1>
+            <p class="page-subtitle">Your donation directly impacts at-risk youth in our community, providing them with opportunities for a brighter future.</p>
+        </div>
+    </section>
+
+    <section class="donate-content">
+        <div class="container">
+            <div class="donate-intro fade-in">
+                <h2>Make a Difference Today</h2>
+                <p>Every dollar you donate goes directly to programs that benefit at-risk youth in Manteca. Our foundation is staffed entirely by volunteers, ensuring 100% of your contribution reaches the children who need it most.</p>
+                
+                <div class="impact-highlight">
+                    <h3>100%</h3>
+                    <p>of your donation goes directly to youth programs</p>
+                </div>
+                
+                <p>From mentorship and leadership training to vocational programs and recreational activities, your support helps provide positive choices and opportunities for young people in our community.</p>
+            </div>
+
+            <div class="donation-form fade-in">
+                <form id="donationForm">
+                    <div class="form-section">
+                        <h3>Select Donation Amount</h3>
+                        <div class="amount-options">
+                            <div class="amount-option" data-amount="25">$25</div>
+                            <div class="amount-option" data-amount="50">$50</div>
+                            <div class="amount-option" data-amount="100">$100</div>
+                            <div class="amount-option" data-amount="250">$250</div>
+                            <div class="amount-option" data-amount="500">$500</div>
+                            <div class="amount-option" data-amount="1000">$1,000</div>
+                        </div>
+                        
+                        <div class="custom-amount">
+                            <label for="customAmount">Or enter custom amount:</label>
+                            <input type="number" id="customAmount" name="customAmount" placeholder="Enter amount" min="1">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Donation Type</h3>
+                        <div class="donation-type">
+                            <div class="type-option selected" data-type="one-time">One-Time</div>
+                            <div class="type-option" data-type="monthly">Monthly</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Donor Information</h3>
+                        <div class="donor-info">
+                            <input type="text" name="firstName" placeholder="First Name" required>
+                            <input type="text" name="lastName" placeholder="Last Name" required>
+                            <input type="email" name="email" placeholder="Email Address" required class="full-width">
+                            <input type="text" name="address" placeholder="Address" class="full-width">
+                            <input type="text" name="city" placeholder="City">
+                            <input type="text" name="zipCode" placeholder="Zip Code">
+                            <textarea name="message" placeholder="Optional message or dedication" rows="3" class="full-width"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="donate-button">Donate Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="font-family: 'Yeseva One', serif; font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 3rem; text-align: center; font-weight: 400;">Your Impact</h2>
+            </div>
+            <div class="impact-grid fade-in">
+                <div class="impact-item">
+                    <div class="amount">$25</div>
+                    <h4>Provides supplies for one child</h4>
+                    <p>School supplies, activity materials, or sports equipment for youth programs.</p>
+                </div>
+                <div class="impact-item">
+                    <div class="amount">$100</div>
+                    <h4>Sponsors a youth for one month</h4>
+                    <p>Complete program participation including mentorship and activities.</p>
+                </div>
+                <div class="impact-item">
+                    <div class="amount">$250</div>
+                    <h4>Funds vocational training</h4>
+                    <p>Job skills training and certification for one at-risk youth.</p>
+                </div>
+                <div class="impact-item">
+                    <div class="amount">$500</div>
+                    <h4>Supports a scholarship</h4>
+                    <p>Educational scholarship for careers in law enforcement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><a href="tel:2094568155">(209) 456-8155</a></p>
+                    <p>Manteca Police Chief's Foundation</p>
+                    <p>A 501(c)(3) Not For Profit Corporation</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="index.html#programs">Programs</a></p>
+                    <p><a href="aboutUs.html">About Us</a></p>
+                    <p><a href="donate.html">Donate</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <p>Volunteer</p>
+                    <p>Sponsor</p>
+                    <p>Partner with Us</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Manteca Police Chief's Foundation. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Amount selection functionality
+        document.querySelectorAll('.amount-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                document.querySelectorAll('.amount-option').forEach(opt => opt.classList.remove('selected'));
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                // Clear custom amount
+                document.getElementById('customAmount').value = '';
+            });
+        });
+
+        // Custom amount input
+        document.getElementById('customAmount').addEventListener('input', function() {
+            if (this.value) {
+                document.querySelectorAll('.amount-option').forEach(opt => opt.classList.remove('selected'));
+            }
+        });
+
+        // Donation type selection
+        document.querySelectorAll('.type-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.type-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Form submission
+        document.getElementById('donationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get selected amount
+            const selectedOption = document.querySelector('.amount-option.selected');
+            const customAmount = document.getElementById('customAmount').value;
+            const amount = selectedOption ? selectedOption.dataset.amount : customAmount;
+            
+            if (!amount) {
+                alert('Please select or enter a donation amount.');
+                return;
+            }
+            
+            // Get donation type
+            const selectedType = document.querySelector('.type-option.selected').dataset.type;
+            
+            // Here you would integrate with your payment processor
+            // For now, show a confirmation message
+            alert(`Thank you for your ${selectedType} donation of $${amount}! You will be redirected to our secure payment processor.`);
+            
+            // In a real implementation, you would redirect to PayPal, Stripe, etc.
+            // window.location.href = 'your-payment-processor-url';
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -32,16 +32,16 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header - Clean & Minimal */
         header {
-            background: var(--primary-blue);
-            color: var(--white);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(30, 49, 94, 0.1);
             transition: all 0.3s ease;
         }
 
@@ -49,149 +49,141 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
 
-        .logo {
-            font-family: 'Yeseva One', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-blue);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 3rem;
         }
 
         .nav-links a {
-            color: var(--white);
+            color: var(--dark-grey);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
-            position: relative;
         }
 
         .nav-links a:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-yellow);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
+        /* Hero Section with Background Image */
         .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, rgba(30, 49, 94, 0.8) 100%),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0de24" opacity="0.1" width="1200" height="600"/><circle fill="%23ffffff" opacity="0.05" cx="200" cy="150" r="80"/><circle fill="%23ffffff" opacity="0.05" cx="800" cy="400" r="60"/><circle fill="%23ffffff" opacity="0.05" cx="1000" cy="200" r="100"/></svg>');
-            color: var(--white);
-            padding: 120px 0 80px;
-            text-align: center;
-            min-height: 100vh;
+            height: 100vh;
+            background: linear-gradient(rgba(30, 49, 94, 0.7), rgba(30, 49, 94, 0.7)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f0de24;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%231e315e;stop-opacity:0.2"/></linearGradient></defs><rect width="1200" height="800" fill="url(%23bg)"/><circle cx="200" cy="200" r="3" fill="%23ffffff" opacity="0.3"/><circle cx="400" cy="150" r="2" fill="%23ffffff" opacity="0.4"/><circle cx="800" cy="300" r="4" fill="%23ffffff" opacity="0.2"/><circle cx="1000" cy="250" r="3" fill="%23ffffff" opacity="0.3"/><circle cx="600" cy="500" r="2" fill="%23ffffff" opacity="0.4"/><circle cx="300" cy="600" r="3" fill="%23ffffff" opacity="0.2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
         }
 
         .hero-content h1 {
             font-family: 'Yeseva One', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
         }
 
         .hero-content .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 300;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-content .tagline {
-            font-size: clamp(1rem, 2vw, 1.3rem);
             margin-bottom: 3rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.4s both;
+            opacity: 0.95;
         }
 
         .cta-button {
             background: var(--accent-yellow);
             color: var(--dark-grey);
-            padding: 15px 40px;
+            padding: 1rem 2.5rem;
             border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            border-radius: 2px;
+            font-size: 1rem;
+            font-weight: 500;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.6s both;
-            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(240, 222, 36, 0.3);
             background: #ffed4a;
+            transform: translateY(-2px);
         }
 
-        /* Mission Section */
+        /* Mission Section - Minimal */
         .mission {
-            padding: 80px 0;
+            padding: 6rem 0;
             background: var(--white);
         }
 
         .mission-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .mission-text h2 {
+        .mission-content h2 {
             font-family: 'Yeseva One', serif;
             font-size: 2.5rem;
             color: var(--primary-blue);
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .mission-content p {
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-        }
-
-        .mission-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
             color: var(--dark-grey);
+            font-weight: 300;
+            line-height: 1.8;
         }
 
-        .mission-visual {
-            background: linear-gradient(45deg, var(--accent-yellow), #ffed4a);
-            padding: 3rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .mission-highlight {
+            background: var(--accent-yellow);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-left: 4px solid var(--primary-blue);
         }
 
-        .mission-visual h3 {
-            font-family: 'Yeseva One', serif;
+        .mission-highlight h3 {
             font-size: 2rem;
+            font-weight: 700;
             color: var(--primary-blue);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        /* Programs Section */
+        /* Programs Section - Clean Grid */
         .programs {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #2a4079 100%);
-            color: var(--white);
+            padding: 6rem 0;
+            background: #fafafa;
         }
 
         .section-title {
@@ -202,140 +194,124 @@
         .section-title h2 {
             font-family: 'Yeseva One', serif;
             font-size: 2.5rem;
+            color: var(--primary-blue);
             margin-bottom: 1rem;
+            font-weight: 400;
         }
 
         .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .program-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border: 1px solid #e5e5e5;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .program-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.15);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-color: var(--accent-yellow);
+            transform: translateY(-5px);
         }
 
         .program-card h3 {
-            font-family: 'Yeseva One', serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
+            font-weight: 600;
         }
 
-        /* Event Section */
-        .upcoming-event {
-            padding: 80px 0;
-            background: var(--accent-yellow);
+        .program-card p {
             color: var(--dark-grey);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Event Section - Minimal */
+        .upcoming-event {
+            padding: 6rem 0;
+            background: var(--primary-blue);
+            color: var(--white);
             text-align: center;
         }
 
         .event-content h2 {
             font-family: 'Yeseva One', serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            font-weight: 400;
         }
 
         .event-content h3 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
-            font-weight: 600;
+            font-weight: 300;
         }
 
         .event-content .date {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--accent-yellow);
             margin-bottom: 2rem;
         }
 
-        /* Testimonial Section */
+        /* Testimonial - Clean */
         .testimonials {
-            padding: 80px 0;
+            padding: 6rem 0;
             background: var(--white);
             text-align: center;
         }
 
-        .testimonial-card {
-            max-width: 800px;
+        .testimonial-content {
+            max-width: 600px;
             margin: 0 auto;
-            padding: 3rem;
-            background: #f8f9fa;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .testimonial-card blockquote {
-            font-size: 1.5rem;
+        .testimonial-content blockquote {
+            font-size: 1.8rem;
             font-style: italic;
             margin-bottom: 2rem;
             color: var(--primary-blue);
+            font-weight: 300;
         }
 
-        .testimonial-card cite {
-            font-size: 1.1rem;
-            font-weight: 600;
+        .testimonial-content cite {
+            font-size: 1rem;
             color: var(--dark-grey);
+            font-weight: 400;
         }
 
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, var(--white) 100%);
-        }
-
-        .about-content {
-            text-align: center;
-        }
-
-        .about-content h2 {
-            font-family: 'Yeseva One', serif;
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 2rem;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            color: var(--dark-grey);
-        }
-
-        /* Footer */
+        /* Footer - Minimal */
         footer {
             background: var(--dark-grey);
             color: var(--white);
-            padding: 3rem 0 1rem;
+            padding: 4rem 0 2rem;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-section h3 {
-            font-family: 'Yeseva One', serif;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
             color: var(--accent-yellow);
+            font-weight: 500;
         }
 
-        .footer-section a {
-            color: var(--white);
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
+            font-weight: 300;
+            line-height: 1.8;
             transition: color 0.3s ease;
         }
 
@@ -346,58 +322,200 @@
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* About Us Page Styles */
+        .about-us-page {
+            padding: 6rem 0 0;
+            background: var(--white);
         }
 
-        /* Responsive Design */
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+            background: #fafafa;
+        }
+
+        .page-header h1 {
+            font-family: 'Yeseva One', serif;
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .breadcrumb {
+            color: var(--dark-grey);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .section-divider {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .section-divider:last-child {
+            border-bottom: none;
+        }
+
+        /* Sponsors Section */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sponsor-card {
+            background: var(--white);
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .sponsor-card:hover {
+            border-color: var(--accent-yellow);
+            transform: translateY(-3px);
+        }
+
+        .sponsor-card h4 {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .sponsor-card .company-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--dark-grey);
+        }
+
+        /* Board of Directors */
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .board-member {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border: 1px solid #e5e5e5;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .board-member:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+
+        .board-member h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .board-member .title {
+            color: var(--dark-grey);
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* Programs Section */
+        .programs-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .program-item {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-yellow);
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+
+        .program-item:hover {
+            border-left-color: var(--primary-blue);
+            transform: translateX(5px);
+        }
+
+        .program-item h4 {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-item p {
+            color: var(--dark-grey);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .program-highlight {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .program-highlight h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
         @media (max-width: 768px) {
             .nav-links {
-                gap: 1rem;
-            }
-            
-            .mission-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+                gap: 1.5rem;
             }
             
             .hero {
-                padding: 100px 0 60px;
+                height: 90vh;
+                background-attachment: scroll;
             }
             
-            .programs, .mission, .about, .testimonials {
-                padding: 60px 0;
+            .programs, .mission, .testimonials {
+                padding: 4rem 0;
+            }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 0.5rem;
+            .logo-text {
+                font-size: 1rem;
             }
             
-            .container {
-                padding: 0 15px;
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
             }
         }
 
-        /* Scroll animations */
+        /* Scroll Animations */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: all 0.6s ease;
         }
 
@@ -410,12 +528,16 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">Manteca Police Chief's Foundation</div>
+            <div class="logo-section">
+                <img src="/imgs/MantecaPD.png" alt="Manteca Police Department" class="logo-image">
+                <div class="logo-text">Police Chief's Foundation</div>
+            </div>
             <ul class="nav-links">
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#programs">Programs</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <li><a href="donate.html">Donate</a></li>
                 <li><a href="#events">Events</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -426,25 +548,24 @@
             <div class="hero-content">
                 <h1>Saving Our Community</h1>
                 <p class="subtitle">One Child at a Time</p>
-                <p class="tagline">Changing the youth through mentorship, citizenship, leadership, vocational training, and recreation programs</p>
-                <a href="#programs" class="cta-button">Get Involved</a>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <a href="#programs" class="cta-button">Get Involved</a>
+                    <a href="donate.html" class="cta-button" style="background: var(--accent-yellow); color: var(--dark-grey);">Donate Now</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="mission" id="about">
         <div class="container">
-            <div class="mission-content">
-                <div class="mission-text fade-in">
-                    <h2>Our Mission</h2>
-                    <p>A choice is a powerful thing. To realize that you have a say in the direction your life takes and that there are others out there who will help you when you make the right choices.</p>
-                    <p>The Manteca Police Chief's Foundation's purpose is to expose the youth of our community to positive choices and goals to aspire to and to help them achieve them.</p>
-                    <p>We demonstrate the vast possibilities within them, supporting and guiding them toward realizing their fullest potential.</p>
-                </div>
-                <div class="mission-visual fade-in">
+            <div class="mission-content fade-in">
+                <h2>Our Mission</h2>
+                <p>A choice is a powerful thing. To realize that you have a say in the direction your life takes and that there are others out there who will help you when you make the right choices.</p>
+                <div class="mission-highlight">
                     <h3>100%</h3>
                     <p>of all funds raised go directly to programs that benefit at-risk youth</p>
                 </div>
+                <p>The Manteca Police Chief's Foundation's purpose is to expose the youth of our community to positive choices and goals to aspire to and to help them achieve them.</p>
             </div>
         </div>
     </section>
@@ -453,16 +574,11 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Programs</h2>
-                <p>Comprehensive programs designed to empower and inspire our youth</p>
             </div>
             <div class="programs-grid">
                 <div class="program-card fade-in">
-                    <h3>Mentorship</h3>
-                    <p>Connecting young people with positive role models who guide and support their personal growth and development.</p>
-                </div>
-                <div class="program-card fade-in">
-                    <h3>Leadership Training</h3>
-                    <p>Developing essential leadership skills that empower youth to become positive influences in their communities.</p>
+                    <h3>Mentorship & Leadership</h3>
+                    <p>Connecting young people with positive role models who guide their personal growth and develop essential leadership skills.</p>
                 </div>
                 <div class="program-card fade-in">
                     <h3>Vocational Training</h3>
@@ -473,12 +589,8 @@
                     <p>Engaging activities that promote teamwork, healthy competition, and positive social interaction.</p>
                 </div>
                 <div class="program-card fade-in">
-                    <h3>Stop Manteca Gangs</h3>
-                    <p>Prevention and intervention programs designed to keep youth away from gang involvement.</p>
-                </div>
-                <div class="program-card fade-in">
-                    <h3>Boys and Girls Club</h3>
-                    <p>Safe spaces where young people can learn, grow, and develop under caring adult supervision.</p>
+                    <h3>Gang Prevention</h3>
+                    <p>Prevention and intervention programs designed to keep youth away from gang involvement and toward positive choices.</p>
                 </div>
             </div>
         </div>
@@ -488,33 +600,221 @@
         <div class="container">
             <div class="event-content fade-in">
                 <h2>Upcoming Event</h2>
-                <h3>Police Chief's Black Tie Ball</h3>
-                <p style="font-style: italic; font-size: 1.3rem; margin-bottom: 1rem;">"A Night Among Heroes"</p>
+                <h3>"A Night Among Heroes"</h3>
                 <p class="date">November 2, 2024</p>
-                <a href="#contact" class="cta-button" style="background: var(--primary-blue); color: var(--white);">Learn More</a>
+                <a href="#contact" class="cta-button" style="background: var(--accent-yellow); color: var(--dark-grey);">Learn More</a>
             </div>
         </div>
     </section>
 
-    <section class="testimonials" id="testimonials">
+    <section class="testimonials">
         <div class="container">
-            <div class="section-title">
-                <h2>What Our Community Says</h2>
-            </div>
-            <div class="testimonial-card fade-in">
+            <div class="testimonial-content fade-in">
                 <blockquote>"Great People, Great Community"</blockquote>
-                <cite>— Gloria Mann, Manteca</cite>
+                <cite>Gloria Mann, Manteca</cite>
             </div>
         </div>
     </section>
 
-    <section class="about">
-        <div class="container">
-            <div class="about-content fade-in">
-                <h2>About Our Foundation</h2>
-                <p>Envision a life devoid of the ability to shape your own destiny. This stark reality plagues numerous youngsters raised amidst poverty, gangs, and the grip of substance abuse. Their dreams remain distant, overshadowed by the belief that choices are elusive.</p>
-                <p>However, let us not underestimate the potency of choice. The Manteca Police Chief's Foundation passionately endeavors to restore the empowering force of positive choices to these children. Through mentorship, intervention, education, vocational training, artistic expression, and athletic pursuits, we embark on a mission to salvage our community, one precious child at a time.</p>
-                <p>The Chief's Foundation is staffed by Police Officers, Police Department staff members, and concerned and dedicated members of our community. All of our staff members volunteer their time and efforts which allows the Foundation to dedicate 100% of all funds raised directly to programs that benefit at-risk youth.</p>
+    <!-- About Us Page -->
+    <section class="about-us-page" id="aboutus" style="display: none;">
+        <div class="page-header">
+            <div class="container">
+                <p class="breadcrumb">Home / About Us</p>
+                <h1>About Our Foundation</h1>
+            </div>
+        </div>
+
+        <!-- Foundation Supporters -->
+        <div class="section-divider">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Foundation Supporters</h2>
+                    <p>Thank you for all the Sponsors. Community support makes all the difference.</p>
+                </div>
+                <div class="sponsors-grid fade-in">
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">Besitos Fine Cuisine</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">California Landscape Services, Inc</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">Deaf Puppies Comedy</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">Grocery Outlet</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">The Healthy Room Project</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">Manteca Development Group, LLC</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">MDA</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">PAAM</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">Project Blue</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">Raymus Homes</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">SJCO DA</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">Sonny Dhaliwal</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">SSG SIGNE Security Group</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">SSJID</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">Star One Credit Union</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <h4>2024 Proud Sponsor</h4>
+                        <p class="company-name">TAMO Group</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Board of Directors -->
+        <div class="section-divider">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Board of Directors</h2>
+                </div>
+                <div class="board-grid fade-in">
+                    <div class="board-member">
+                        <h3>Stephen Schluer</h3>
+                        <p class="title">Chief of Police</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Nick Obligacion</h3>
+                        <p class="title">Retired Chief of Police</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Deanna Thornton</h3>
+                        <p class="title">Treasurer</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Mike Kelly</h3>
+                        <p class="title">Police Officer</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Joe Kriskovich</h3>
+                        <p class="title">Member at Large</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Mike Morowit</h3>
+                        <p class="title">Member at Large</p>
+                    </div>
+                    <div class="board-member">
+                        <h3>Cecily Ballungay</h3>
+                        <p class="title">Member at Large</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Programs -->
+        <div class="section-divider">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Programs</h2>
+                </div>
+                <div class="program-highlight">
+                    <h3>Since its inception the Foundation has dedicated 100% of all funds raised directly to programs that benefit our youth, primarily our at-risk youth.</h3>
+                </div>
+                <div class="programs-list fade-in">
+                    <div class="program-item">
+                        <h4>Junior CSI Academy</h4>
+                        <p>Call (209) 456-8155 for details.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Chief's Foundation Academy</h4>
+                        <p>Comprehensive leadership and citizenship training program for youth.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Chamber of Commerce Youth Leadership Project</h4>
+                        <p>Partnership program developing future community leaders.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Second Harvest Food Bank Food for Thought, Bread of Life</h4>
+                        <p>Addressing food insecurity among local youth and families.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Homeless Children's Christmas Shopping</h4>
+                        <p>Providing holiday support for children experiencing homelessness.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Manteca, East Union, and Sierra High School's Sober Graduation</h4>
+                        <p>Supporting safe graduation celebrations for all local high schools.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Agape Foster Family Sponsor</h4>
+                        <p>Supporting foster families in our community.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Little League Sponsor</h4>
+                        <p>Promoting youth athletics and teamwork through baseball.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>MUSD Careers in Law Enforcement Educational Scholarship</h4>
+                        <p>Supporting students pursuing careers in law enforcement.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Manteca Senior Center Sponsor</h4>
+                        <p>Supporting our senior community members.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Anti-Gang Youth Rally Program</h4>
+                        <p>Community events promoting positive choices and gang prevention.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Manteca Boys and Girls Club Sponsorship</h4>
+                        <p>Supporting safe after-school and summer programs for youth.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Project Blue: Healthy Rooms and 10K with a Cop</h4>
+                        <p>Health and wellness initiatives connecting police with community.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Child Abuse Prevention Council</h4>
+                        <p>Supporting efforts to protect children from abuse and neglect.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Agriculture in Motion Science Camp</h4>
+                        <p>Educational programs connecting youth with agricultural sciences.</p>
+                    </div>
+                    <div class="program-item">
+                        <h4>Shop with a Cop</h4>
+                        <p>Building positive relationships between police and youth through community shopping events.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -523,40 +823,89 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>Phone: <a href="tel:2094568155">(209) 456-8155</a></p>
+                    <h3>Contact</h3>
+                    <p><a href="tel:2094568155">(209) 456-8155</a></p>
                     <p>Manteca Police Chief's Foundation</p>
-                    <p>A 501(c)(3) Not For Profit Corporation</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="#about">About Us</a></p>
-                    <p><a href="#programs">Our Programs</a></p>
-                    <p><a href="#events">Events</a></p>
-                    <p><a href="#testimonials">Testimonials</a></p>
+                    <h3>Programs</h3>
+                    <p>Mentorship</p>
+                    <p>Leadership Training</p>
+                    <p>Vocational Training</p>
+                    <p>Recreation</p>
                 </div>
                 <div class="footer-section">
                     <h3>Get Involved</h3>
-                    <p>Volunteer Opportunities</p>
-                    <p>Donate</p>
-                    <p>Sponsorship</p>
-                    <p>Board of Directors</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <p><a href="#">Facebook</a></p>
-                    <p><a href="#">Community Updates</a></p>
-                    <p><a href="#">Newsletter</a></p>
+                    <p><a href="donate.html">Donate</a></p>
+                    <p>Volunteer</p>
+                    <p>Sponsor</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Manteca Police Chief's Foundation. All Rights Reserved.</p>
+                <p>&copy; 2024 Manteca Police Chief's Foundation. A 501(c)(3) Not For Profit Corporation.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Navigation handling for About Us page
+        const aboutUsLink = document.querySelector('a[href="#aboutus"]');
+        const aboutUsPage = document.querySelector('#aboutus');
+        const mainSections = document.querySelectorAll('section:not(#aboutus)');
+        
+        if (aboutUsLink && aboutUsPage) {
+            aboutUsLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Hide main page sections
+                mainSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Show About Us page
+                aboutUsPage.style.display = 'block';
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Update URL without triggering navigation
+                history.pushState(null, null, '#aboutus');
+            });
+        }
+        
+        // Handle other navigation links to show main page
+        document.querySelectorAll('a[href^="#"]:not([href="#aboutus"])').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (aboutUsPage && aboutUsPage.style.display === 'block') {
+                    // Show main page sections
+                    mainSections.forEach(section => {
+                        section.style.display = 'block';
+                    });
+                    
+                    // Hide About Us page
+                    aboutUsPage.style.display = 'none';
+                }
+            });
+        });
+        
+        // Handle browser back/forward
+        window.addEventListener('popstate', function() {
+            if (window.location.hash === '#aboutus') {
+                mainSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                aboutUsPage.style.display = 'block';
+            } else {
+                mainSections.forEach(section => {
+                    section.style.display = 'block';
+                });
+                if (aboutUsPage) {
+                    aboutUsPage.style.display = 'none';
+                }
+            }
+        });
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -568,18 +917,6 @@
                     });
                 }
             });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(30, 49, 94, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'var(--primary-blue)';
-                header.style.backdropFilter = 'none';
-            }
         });
 
         // Fade in animation on scroll
@@ -596,20 +933,8 @@
             });
         }, observerOptions);
 
-        // Observe all fade-in elements
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
-        });
-
-        // Add some interactive hover effects
-        document.querySelectorAll('.program-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
         });
     </script>
 </body>
